@@ -9,9 +9,10 @@ public class Driver {
 
 	public static void createAcess() {
 
-		System.setProperty("webdriver.chrome.driver", "./BlazeAutomation/driverChrome/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "./driverChrome/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+
 	}
 
 	public static WebDriver getWebDriver() {
