@@ -15,6 +15,10 @@ public class Driver {
 
 	}
 
+	public static void webSite(String texto) {
+		Driver.getWebDriver().get(texto);
+	}
+
 	public static WebDriver getWebDriver() {
 
 		if (driver == null) {

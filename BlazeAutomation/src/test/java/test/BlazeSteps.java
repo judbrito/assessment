@@ -11,19 +11,30 @@ public class BlazeSteps {
 		BusinessLogic.acess();
 	}
 
-	@Quando("digitar login")
-	public void digitarLogin() {
-		System.out.println("testando step anterior");
+	@Dado("acesso o painel de login")
+	public void acessoOPainelDeLogin() {
+		BusinessLogic.clickModal();
 	}
 
-	@Quando("senha")
-	public void senha() {
-		System.out.println("testando step anterior");
+	@Quando("digito o usuário")
+	public void digitoOUsuário() {
+		BusinessLogic.whiteUser();
+
 	}
 
-	@Então("confirmo acesso")
-	public void confirmoAcesso() {
-		System.out.println("testando step anterior");
+	@Quando("a senha")
+	public void aSenha() {
+		BusinessLogic.whitePassword();
 	}
 
+	@Quando("clico no botão de logar")
+	public void clicoNoBotãoDeLogar() {
+		BusinessLogic.clickBtnLogin();
+	}
+
+	@Então("confirmo o usuario logado")
+	public void confirmoOUsuarioLogado() {
+		BusinessLogic.validation();
+
+	}
 }
