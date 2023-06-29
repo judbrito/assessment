@@ -18,13 +18,13 @@ public class BlazeSteps {
 
 	@Quando("digito o usuário")
 	public void digitoOUsuário() {
-		BusinessLogic.whiteUser();
+		BusinessLogic.writeUser();
 
 	}
 
 	@Quando("a senha")
 	public void aSenha() {
-		BusinessLogic.whitePassword();
+		BusinessLogic.writePassword();
 	}
 
 	@Quando("clico no botão de logar")

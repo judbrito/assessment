@@ -1,17 +1,13 @@
 package test;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import core.Driver;
 
-public class PageElement {
+class PageElement {
 
 	public PageElement() {
 		PageFactory.initElements(Driver.getWebDriver(), this);
@@ -37,7 +33,7 @@ public class PageElement {
 	}
 
 	public WebElement getTxtUser() {
-		time(txtUser);
+		BusinessLogic.time(txtUser);
 		return txtUser;
 	}
 
@@ -53,8 +49,4 @@ public class PageElement {
 		return txtValidation;
 	}
 
-	public void time(WebElement element) {
-		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(7));
-		wait.until(ExpectedConditions.visibilityOf(element));
-	}
 }

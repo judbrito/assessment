@@ -20,7 +20,6 @@ public class Driver {
 	}
 
 	public static WebDriver getWebDriver() {
-
 		if (driver == null) {
 			createAcess();
 		}
@@ -28,7 +27,6 @@ public class Driver {
 	}
 
 	public static void tearDown() {
-
 		if (driver != null) {
 			driver.quit();
 			driver = null;
