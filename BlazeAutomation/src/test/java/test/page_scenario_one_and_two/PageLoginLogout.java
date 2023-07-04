@@ -1,4 +1,4 @@
-package test;
+package test.page_scenario_one_and_two;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,9 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import core.Driver;
 
-class PageElement {
 
-	public PageElement() {
+class PageLoginLogout{
+
+	public PageLoginLogout() {
 		PageFactory.initElements(Driver.getWebDriver(), this);
 	}
 
@@ -23,30 +24,42 @@ class PageElement {
 	private WebElement txtPassword;
 
 	@FindBy(how = How.XPATH, using = "//button[@class='btn btn-primary' and text()='Log in']")
-	private WebElement btnLogin;
-
+	private WebElement btnSubmitUser;
+	
 	@FindBy(how = How.ID, using = "nameofuser")
-	private WebElement txtValidation;
+	private WebElement txtValidationOn;
+	
+	@FindBy(how = How.ID, using = "login2")
+	private WebElement txtValidationOff;
+
+	@FindBy(how = How.ID, using = "logout2")
+	private WebElement btnLogout;
 
 	public WebElement getBtnUser() {
 		return btnUser;
 	}
 
 	public WebElement getTxtUser() {
-		BusinessLogic.time(txtUser);
+		LogicOneTwo.timeSelenium(txtUser);
 		return txtUser;
 	}
 
 	public WebElement getTxtPassword() {
 		return txtPassword;
 	}
-
-	public WebElement getBtnLogin() {
-		return btnLogin;
+	public WebElement getBtnSubmit() {
+		return btnSubmitUser;
+	}
+	public WebElement getTxtValidationOn() {
+		return txtValidationOn;
 	}
 
-	public WebElement getTxtValidation() {
-		return txtValidation;
+	public WebElement getTxtValidationOff() {
+		return txtValidationOff;
 	}
 
+	public WebElement getBtnLogout() {
+		return btnLogout;
+	}	
+	
 }
