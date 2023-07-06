@@ -2,20 +2,46 @@
 Funcionalidade: 
   Automação do site DemonBlaze
 
+  @ID_0001
   Cenário: Fazer login no site
     Dado que acesso o site
-    E acesso o painel de login
-    Quando digito o usuário
-    E a senha
-    E clico no botão de logar
-    Então confirmo o usuario logado
-
-  Cenário: Fazer logout no site
-    Dado que clico em logout
-    Então valido login ausente
-
-  Cenário: Cadastrar Usuário no site
-    Dado que clico em sing Up
-    Quando digito o usuário novo
-    E a nova senha
-    Então valido a mensagem conta existente
+  #E acesso o painel de login
+  #Quando digito o usuário
+  #E a senha
+  #E clico no botão de logar
+  #Então confirmo o usuario logado
+  #
+  #@ID_0002
+  #Cenário: Fazer logout no site
+  #Dado que clico em logout
+  #Então valido login ausente
+  #
+  #@ID_0003
+  #Cenário: Cadastrar Usuário no site
+  #Dado que clico em sing Up
+  #Quando digito o usuário novo
+  #E a nova senha
+  #E clico no botão submit
+  #Então valido a mensagem conta nova
+  #
+  #@ID_0004
+  #Cenário: Validar usuário existente
+  #Dado que clico em sing Up
+  #Quando digito o usuário novo
+  #E a nova senha
+  #E clico no botão submit
+  #Então valido a mensagem conta existente
+  #@ID_0005
+  #Cenário: Validar video existente
+  #Dado que clico em About Us
+  #Quando clico em play
+  #E o video inicia
+  #Então confirmo video andamento
+  @ID_0006
+  Cenário: Mensagem pelo contato
+    Dado que clico em contato
+    Quando escrevo o email
+    E escrevo o nome
+    E escrevo a mensagem
+    E clico em enviar mensagem
+    Então valido envio da mensagem

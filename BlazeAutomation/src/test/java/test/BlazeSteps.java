@@ -3,11 +3,12 @@ package test;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
+import test.page_scenario_five_and_six.LogicFiveSix;
 import test.page_scenario_one_and_two.LogicOneTwo;
 import test.page_scenario_three_and_four.LogicThreeFour;
 
 public class BlazeSteps {
-	
+
 	@Dado("que acesso o site")
 	public void queAcessoOSite() {
 		LogicOneTwo.acess();
@@ -64,9 +65,68 @@ public class BlazeSteps {
 		LogicThreeFour.writeSingPassword();
 	}
 
-	@Então("valido a mensagem conta existente")
-	public void validoAMensagemContaExistente() {
-		LogicThreeFour.clickSing();
+	@Quando("clico no botão submit")
+	public void clicoNoBotãoSubmit() {
+		LogicThreeFour.clickSingSubmit();
 	}
 
+	@Então("valido a mensagem conta nova")
+	public void validoAMensagemContaNova() {
+		LogicThreeFour.signSucessful();
+	}
+
+	@Então("valido a mensagem conta existente")
+	public void validoAMensagemContaExistente() {
+		LogicThreeFour.signUnsuccessful();
+	}
+
+	@Dado("que clico em About Us")
+	public void queClicoEmAboutUs() {
+		LogicFiveSix.clickAbout();
+	}
+
+	@Quando("clico em play")
+	public void clicoEmPlay() {
+		LogicFiveSix.clickPlay();
+	}
+
+	@Quando("o video inicia")
+	public void oVideoInicia() {
+		LogicFiveSix.videoProgress();
+	}
+
+	@Então("confirmo video andamento")
+	public void confirmoVideoAndamento() {
+		LogicFiveSix.videoClosed();
+	}
+
+	@Dado("que clico em contato")
+	public void queClicoEmContato() {
+		LogicFiveSix.clickContact();
+	}
+
+	@Quando("escrevo o email")
+	public void escrevoOEmail() {
+		LogicFiveSix.writeEmail();
+	}
+
+	@Quando("escrevo o nome")
+	public void escrevoONome() {
+		LogicFiveSix.writeName();
+	}
+
+	@Quando("escrevo a mensagem")
+	public void escrevoAMensagem() {
+		LogicFiveSix.writeMessage();
+	}
+
+	@Quando("clico em enviar mensagem")
+	public void clicoEmEnviarMensagem() {
+		LogicFiveSix.clickSendMessage();
+	}
+	
+	@Quando("valido envio da mensagem")
+	public void validoEnvioDaMensagem() {
+		LogicFiveSix.sentMessage();
+	}
 }

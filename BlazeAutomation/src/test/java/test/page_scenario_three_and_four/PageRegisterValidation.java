@@ -14,7 +14,8 @@ class PageRegisterValidation {
 		PageFactory.initElements(Driver.getWebDriver(), this);
 
 	}
-	@FindBy(how = How.ID, using = "signin2")
+	
+	@FindBy(how = How.XPATH, using = "//a[@id='signin2']")
 	private WebElement btnSingModal;	
 
 	@FindBy(how = How.ID, using = "sign-username")
@@ -23,11 +24,18 @@ class PageRegisterValidation {
 	@FindBy(how = How.ID, using = "sign-password")
 	private WebElement txtSignPassword;
 	
-	@FindBy(how = How.CLASS_NAME, using = "btn btn-primary")
+	@FindBy(how = How.XPATH, using = "//div[@id='signInModal']//span")
+	private WebElement btnClose;
+	
+	@FindBy(how = How.XPATH, using = "//button[@class='btn btn-primary' and text()='Sign up']")
 	private WebElement btnSingSubmit;
 	
 	public WebElement getBtnSingModal() {
 		return btnSingModal;
+	}
+	
+	public WebElement getClose() {
+		return btnClose;
 	}
 
 	public WebElement getTxtSignUser() {
