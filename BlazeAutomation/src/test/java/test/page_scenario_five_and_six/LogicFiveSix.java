@@ -16,6 +16,7 @@ public class LogicFiveSix {
 
 	public static void clickAbout() {
 		page.getBtnAbout().click();
+		System.out.println("clique sobre");
 	}
 
 	public static void clickPlay() {
@@ -39,7 +40,8 @@ public class LogicFiveSix {
 	}
 
 	public static void clickContact() {
-		page.getBtnContact();
+		page.getBtnContact().click();
+	
 	}
 
 	public static void writeEmail() {
@@ -55,12 +57,11 @@ public class LogicFiveSix {
 	}
 
 	public static void clickSendMessage() {
-		page.getBtnSend().click();
+				page.getBtnSend().click();
 		
 	}
 
 	public static void sentMessage() {
-		timeSelenium(page.getBtnSend());
 		String text = page.getBtnSend().getText();
 		Alert alert = Driver.getWebDriver().switchTo().alert();
 		Assert.assertEquals(text, alert.getText());

@@ -13,31 +13,31 @@ class PageVideoContact {
 		PageFactory.initElements(Driver.getWebDriver(), this);
 
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@class='nav-link' and text()='About us']")
-	private WebElement btnAbout;	
+	private WebElement btnAbout;
 
 	@FindBy(how = How.ID, using = "example-video_html5_api")
 	private WebElement txtVideo;
-		
+
 	@FindBy(how = How.CLASS_NAME, using = "vjs-big-play-button")
 	private WebElement btnPlay;
-		
+
 	@FindBy(how = How.XPATH, using = "//div[@id='videoModal']//span")
 	private WebElement btnClose;
-	
-	@FindBy(how = How.LINK_TEXT, using = "Contact")
-	private WebElement btnContact;	
+
+	@FindBy(how = How.XPATH, using = "//a[text()='Contact']")
+	private WebElement btnContact;
 
 	@FindBy(how = How.ID, using = "recipient-email")
 	private WebElement txtEmail;
-		
+
 	@FindBy(how = How.ID, using = "recipient-name")
 	private WebElement txtName;
-		
+
 	@FindBy(how = How.ID, using = "message-text")
 	private WebElement txtMessage;
-	
+
 	@FindBy(how = How.CLASS_NAME, using = "btn-primary")
 	private WebElement btnSend;
 
@@ -72,8 +72,8 @@ class PageVideoContact {
 	public WebElement getTxtMessage(String string) {
 		return txtMessage;
 	}
-	
+
 	public WebElement getBtnSend() {
 		return btnSend;
 	}
-	}
+}
