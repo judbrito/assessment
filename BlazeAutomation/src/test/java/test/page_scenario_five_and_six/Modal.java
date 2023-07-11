@@ -18,13 +18,13 @@ public class Modal {
 
 	}
 
-	public String getGetName() {
-		this.getEmail = dados.obterValor("ID_0006", 2);
+	public String getName() {
+		this.getName = dados.obterValor("ID_0006", 2);
 		return getName;
 	
 	}
 
-	public String getGetMessage() {
+	public String getMessage() {
 		this.getMessage = dados.obterValor("ID_0006", 3);
 		return getMessage;
 	}	

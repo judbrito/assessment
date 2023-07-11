@@ -5,6 +5,7 @@ import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 import test.page_scenario_five_and_six.LogicFiveSix;
 import test.page_scenario_one_and_two.LogicOneTwo;
+import test.page_scenario_seven_and_eigth.LogicSevenEight;
 import test.page_scenario_three_and_four.LogicThreeFour;
 
 public class BlazeSteps {
@@ -124,9 +125,29 @@ public class BlazeSteps {
 	public void clicoEmEnviarMensagem() {
 		LogicFiveSix.clickSendMessage();
 	}
-	
+
 	@Quando("valido envio da mensagem")
 	public void validoEnvioDaMensagem() {
 		LogicFiveSix.sentMessage();
+	}
+
+	@Quando("que clico em laptops")
+	public void queClicoEmLaptops() {
+		LogicSevenEight.clickLaptops();
+	}
+
+	@Quando("confirmo a marca Dell")
+	public void confirmoAMarcaDell() {
+		LogicSevenEight.selectDell();
+	}
+
+	@Quando("adiciono no carrinho")
+	public void adicionoNoCarrinho() {
+		LogicSevenEight.addToCart();
+	}
+
+	@Então("confirmo o produto")
+	public void confirmoOProduto() {
+		LogicSevenEight.confirmProduct();
 	}
 }

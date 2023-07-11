@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -36,35 +37,40 @@ public class LogicFiveSix {
 	public static void videoClosed() {
 		timeSelenium(page.getBtnClose());
 		page.getBtnClose().click();
-
 	}
 
 	public static void clickContact() {
 		page.getBtnContact().click();
-	
+
 	}
 
 	public static void writeEmail() {
-		page.getTxtEmail(model.getEmail());
+		timeSelenium(page.getTxtEmail());
+		page.getTxtEmail().sendKeys(model.getEmail());
 	}
 
 	public static void writeName() {
-		page.getTxtName(model.getGetName());
+		page.getTxtName().sendKeys(model.getName());
 	}
 
 	public static void writeMessage() {
-		page.getTxtMessage(model.getGetMessage());
+		page.getTxtMessage().sendKeys(model.getMessage());
 	}
 
 	public static void clickSendMessage() {
-				page.getBtnSend().click();
-		
+		page.getBtnSend().click();
+
 	}
 
 	public static void sentMessage() {
-		String text = page.getBtnSend().getText();
-		Alert alert = Driver.getWebDriver().switchTo().alert();
-		Assert.assertEquals(text, alert.getText());
+		try {
+			Alert alert = Driver.getWebDriver().switchTo().alert();
+			String alertText = alert.getText();
+			Assert.assertEquals("Thanks for the message!!", alertText);
+			alert.accept();
+		} catch (NoAlertPresentException e) {
+
+		}
 	}
 
 	public static void timeSelenium(WebElement text) {

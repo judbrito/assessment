@@ -61,15 +61,15 @@ class PageVideoContact {
 		return btnContact;
 	}
 
-	public WebElement getTxtEmail(String string) {
+	public WebElement getTxtEmail() {
 		return txtEmail;
 	}
 
-	public WebElement getTxtName(String string) {
+	public WebElement getTxtName() {
 		return txtName;
 	}
 
-	public WebElement getTxtMessage(String string) {
+	public WebElement getTxtMessage() {
 		return txtMessage;
 	}
 

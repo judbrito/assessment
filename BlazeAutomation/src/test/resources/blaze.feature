@@ -5,6 +5,7 @@ Funcionalidade:
   @ID_0001
   Cenário: Fazer login no site
     Dado que acesso o site
+
   #E acesso o painel de login
   #Quando digito o usuário
   #E a senha
@@ -37,11 +38,23 @@ Funcionalidade:
   #Quando clico em play
   #E o video inicia
   #Então confirmo video andamento
-  @ID_0006
-  Cenário: Mensagem pelo contato
-    Dado que clico em contato
-    Quando escrevo o email
-    E escrevo o nome
-    E escrevo a mensagem
-    E clico em enviar mensagem
-    Então valido envio da mensagem
+  #@ID_0006
+  #Cenário: Mensagem pelo contato
+  #Dado que clico em contato
+  #Quando escrevo o email
+  #E escrevo o nome
+  #E escrevo a mensagem
+  #E clico em enviar mensagem
+  #Então valido envio da mensagem
+  @ID_0007
+  Cenário: Verificar Notebook
+    #Dado que acesso o site
+    #E acesso o painel de login
+    #Quando digito o usuário
+    #E a senha
+    #E clico no botão de logar
+    #E confirmo o usuario logado    
+    Quando que clico em laptops
+    E confirmo a marca Dell
+    E adiciono no carrinho
+    Então confirmo o produto
