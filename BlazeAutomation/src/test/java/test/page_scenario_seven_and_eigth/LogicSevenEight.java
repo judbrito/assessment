@@ -1,13 +1,15 @@
-test.page
+package test.page_scenario_seven_and_eigth;
 import java.time.Duration;
+
+import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import core.Driver;
-import test.page_scenario_seven_and_eigth.PageLaptosMonitor;
+
 
 public class LogicSevenEight {
     private static PageLaptosMonitor page = new PageLaptosMonitor();
@@ -18,60 +20,51 @@ public class LogicSevenEight {
     }
 
     public static void selectDell() {
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver.getWebDriver();
-        WebElement dellElement = null;
-        boolean elementoEncontrado = false;
-        int scrollHeight = 0;
-        int previousScrollHeight = -1;
-
-        while (!elementoEncontrado && scrollHeight != previousScrollHeight) {
-            previousScrollHeight = scrollHeight;
-            jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                Thread.currentThread().interrupt();
-            }
-
-            try {
-                dellElement = page.getTxtDell();
-                if (dellElement.isDisplayed()) {
-                    elementoEncontrado = true;
-                }
-            } catch (NoSuchElementException e) {
-             
-            }
-
-            scrollHeight = Integer.parseInt(jsExecutor.executeScript("return window.scrollY").toString());
-        }
-
-        if (elementoEncontrado) {
-            dellElement.sendKeys(Keys.PAGE_DOWN);
-            dellElement.click();
-            System.out.println("Escolha Dell: " + dellElement.getText());
-        } else {
-            System.out.println("Elemento Dell não encontrado ou não está visível após rolar o scroll.");
-        }
+    	activeScroll(page.getTxtDell());
+    	  System.out.println("selecionou dell");
     }
 
 
     public static void addToCart() {
-        page.getTxtProduto().click();
+        timeSelenium(page.getTxtProduct());        
+        System.out.println("Adicionando ao carrinho");
+        
     }
 
-    public static void confirmProduct() {
-        page.getTxtValidation().click();
-    }
+    public static void sentMessage() {
+		try {
+			Alert alert = Driver.getWebDriver().switchTo().alert();
+			String alertText = alert.getText();
+			Assert.assertEquals("Product added.", alertText);
+			alert.accept();
+		    System.out.println("assertou");
+		} catch (NoAlertPresentException e) {
 
-    public static void timeSelenium(WebElement text) {
-        WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(text));
+		}
+	}
+    public static void clickMonitor() {
+        activeScroll(page.getBtnMonitor());
+        System.out.println("Clique em monitor");
     }
-
-    public static void activeScroll(WebElement element) {
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver.getWebDriver();
-        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
-        element.click();
+    
+    
+       public static void activeScroll(WebElement element) {
+        while (true) {
+            try {
+                element.click();
+                break;
+            } catch (Exception e) {
+                JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver.getWebDriver();
+                jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+                break;
+            }
+            
+        }
     }
+       public static void timeSelenium(WebElement text) {
+           WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(10));
+           wait.until(ExpectedConditions.visibilityOf(text));
+           text.click();
+           wait.until(ExpectedConditions.alertIsPresent());
+       }
 }

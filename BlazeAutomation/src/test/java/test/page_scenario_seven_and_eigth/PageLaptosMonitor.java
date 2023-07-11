@@ -9,43 +9,35 @@ import core.Driver;
 
 class PageLaptosMonitor {
 
-	
-		public PageLaptosMonitor() {
-			PageFactory.initElements(Driver.getWebDriver(), this);
-		}
-		@FindBy(how = How.XPATH, using ="//a[@id='itemc'and contains(text(), 'Laptops')]")
-		private WebElement btnLaptops;  
-
-		@FindBy(how = How.XPATH, using = "//h4[@class='card-title']//a[contains(text(), 'Dell')]")
-		private WebElement txtDell;
-
-		@FindBy(how = How.XPATH, using = "//h2[@class='hrefch'and contains(text(), 'Dell')]")
-		private WebElement txtProduto;
-		
-		@FindBy(how = How.XPATH, using = "//h2[@class='name'and contains(text(), 'Dell')]")
-		private WebElement txtValidation;
-		
-		@FindBy(how = How.LINK_TEXT, using = "hrefch")
-		private WebElement txtValidationOn;
-
-		public WebElement getBtnLaptops() {
-			return btnLaptops;
-		}
-
-		public WebElement getTxtDell() {
-			return txtDell;
-		}
-
-		public WebElement getTxtProduto() {
-			return txtProduto;
-		}
-
-		public WebElement getTxtValidation() {
-			return txtValidation;
-		}
-
-		public WebElement getTxtValidationOn() {
-			return txtValidationOn;
-		}
-
+	public PageLaptosMonitor() {
+		PageFactory.initElements(Driver.getWebDriver(), this);
 	}
+
+	@FindBy(how = How.XPATH, using = "//a[@id='itemc'and contains(text(), 'Laptops')]")
+	private WebElement btnLaptops;
+
+	@FindBy(how = How.XPATH, using = "//h4[@class='card-title']//a[contains(text(), 'Dell')]")
+	private WebElement txtDell;
+
+	@FindBy(how = How.XPATH, using = "//a[@class='btn btn-success btn-lg' and contains(text(), 'Add to cart')]")
+	private WebElement txtProduct;
+	
+	@FindBy(how = How.XPATH, using = "//a[@id='itemc'and contains(text(), 'Monitor')]")
+	private WebElement btnMonitor;
+	
+	public WebElement getBtnLaptops() {
+		return btnLaptops;
+	}
+	
+	public WebElement getBtnMonitor() {
+		return btnMonitor;
+	}
+
+	public WebElement getTxtDell() {
+		return txtDell;
+	}
+
+	public WebElement getTxtProduct() {
+		return txtProduct;
+	}
+}

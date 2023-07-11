@@ -136,8 +136,8 @@ public class BlazeSteps {
 		LogicSevenEight.clickLaptops();
 	}
 
-	@Quando("confirmo a marca Dell")
-	public void confirmoAMarcaDell() {
+	@Quando("confirmo a marca")
+	public void confirmoAMarca() {
 		LogicSevenEight.selectDell();
 	}
 
@@ -148,6 +148,10 @@ public class BlazeSteps {
 
 	@Então("confirmo o produto")
 	public void confirmoOProduto() {
-		LogicSevenEight.confirmProduct();
+		LogicSevenEight.sentMessage();
+	}
+	@Quando("que clico em monitors")
+	public void queClicoEmMonitors() {	
+		LogicSevenEight.clickMonitor();
 	}
 }
