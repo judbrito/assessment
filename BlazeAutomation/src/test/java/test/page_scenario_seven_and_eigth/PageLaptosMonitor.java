@@ -23,7 +23,14 @@ class PageLaptosMonitor {
 	private WebElement txtProduct;
 	
 	@FindBy(how = How.XPATH, using = "//a[@id='itemc'and contains(text(), 'Monitor')]")
-	private WebElement btnMonitor;
+		private WebElement btnMonitor;
+	
+	@FindBy(how = How.XPATH, using = "(//div[contains(@class, 'col-lg-4') and contains(@class, 'col-md-6') and contains(@class, 'mb-4')])[1]")
+	private WebElement txtFirstElement;
+	
+	public WebElement getFirstElement() {
+		return txtFirstElement;
+	}
 	
 	public WebElement getBtnLaptops() {
 		return btnLaptops;

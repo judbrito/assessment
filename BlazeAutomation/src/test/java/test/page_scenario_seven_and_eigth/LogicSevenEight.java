@@ -46,6 +46,11 @@ public class LogicSevenEight {
         activeScroll(page.getBtnMonitor());
         System.out.println("Clique em monitor");
     }
+    public static void firstItem() {
+        activeScroll(page.getFirstElement());
+        System.out.println("Clique em monitor");
+    }
+  
     
     
        public static void activeScroll(WebElement element) {

@@ -1,5 +1,6 @@
 /target/
-.classpath
-.project
-.settings
-.metadata
+BlazeAutomation/.classpath
+BlazeAutomation.project
+BlazeAutomation.settings/
+BlazeAutomation.metadata
+BlazeAutomation.gitignore

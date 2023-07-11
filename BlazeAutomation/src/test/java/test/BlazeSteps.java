@@ -154,4 +154,8 @@ public class BlazeSteps {
 	public void queClicoEmMonitors() {	
 		LogicSevenEight.clickMonitor();
 	}
+	@Quando("seleciono o primeiro item")
+	public void selecionoOPrimeiroItem() {
+		
+	}
 }
