@@ -1,6 +1,7 @@
 /target/
 BlazeAutomation/.classpath
-BlazeAutomation.project
-BlazeAutomation.settings/
-BlazeAutomation.metadata
-BlazeAutomation.gitignore
+BlazeAutomation/.project
+BlazeAutomation/.settings/
+BlazeAutomation/.metadata
+BlazeAutomation/.gitignore
+BlazeAutomation/driverChrome
