@@ -156,6 +156,6 @@ public class BlazeSteps {
 	}
 	@Quando("seleciono o primeiro item")
 	public void selecionoOPrimeiroItem() {
-		
+		System.out.println("fdfdasfadf");
 	}
 }
