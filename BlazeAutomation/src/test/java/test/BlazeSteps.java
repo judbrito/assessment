@@ -175,4 +175,16 @@ public class BlazeSteps {
 	public void confirmoOMonitor() {
 		LogicSevenEight.confirmItem();
 	}
+
+	@Quando("que clico em algumas categorias")
+	public void queClicoEmAlgumasCategorias() {
+		
+	}
+
+	@Quando("confirmo os produtos")
+	public void confirmoOsProdutos() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new cucumber.api.PendingException();
+	}
+
 }

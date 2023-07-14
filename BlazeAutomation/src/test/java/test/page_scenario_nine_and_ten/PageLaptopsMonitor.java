@@ -1,4 +1,4 @@
-package test.page_scenario_seven_and_eigth;
+package test.page_scenario_nine_and_ten;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,21 +13,18 @@ class PageLaptopsMonitor {
 		PageFactory.initElements(Driver.getWebDriver(), this);
 	}
 
-	@FindBy(how = How.XPATH, using = "//a[@id='itemc'and contains(text(), 'Laptops')or contains(text(), 'monitor')]//a[@id='itemc' and contains(text(),'Phones')]")
+	@FindBy(how = How.XPATH, using = "//a[@id='itemc'and contains(text(), 'Laptops')or contains(text(), 'monitor')]")
 	private WebElement btnLaptops;
-	
-	@FindBy(how = How.XPATH, using = "//a[@id='itemc' and contains(text(),'Phones')]")
-	private WebElement btnPhones;
-	
-	@FindBy(how = How.XPATH, using = "//a[@id='itemc' and contains(text(),'Monitors')]")
-	private WebElement btnMonitor;
 
 	@FindBy(how = How.XPATH, using = "//h4[@class='card-title']//a[contains(text(), 'Dell') or contains(text(), 'monitor')]")
 	private WebElement txtDell;
 
 	@FindBy(how = How.XPATH, using = "//a[@class='btn btn-success btn-lg' and contains(text(), 'Add to cart')]")
 	private WebElement txtAddCart;
-	
+
+	@FindBy(how = How.XPATH, using = "//a[@id='itemc' and contains(text(),'Monitors')]")
+	private WebElement btnMonitor;
+
 	@FindBy(how = How.XPATH, using = "(//div[contains(@class, 'col-lg-4')])[1]//a[contains(text(), 'monitor')]")
 	private WebElement txtFirstElement;
 
