@@ -12,8 +12,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
     glue = "test",
     plugin = { "pretty", "html:target/reporthtml", "json:target/report.json" },
     snippets = SnippetType.CAMELCASE,
-    monochrome = false,
-    
+    monochrome = false,    
     dryRun = false,
     strict = false
 )

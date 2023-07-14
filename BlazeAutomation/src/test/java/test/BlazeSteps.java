@@ -133,7 +133,7 @@ public class BlazeSteps {
 
 	@Quando("que clico em laptops")
 	public void queClicoEmLaptops() {
-		LogicSevenEight.clickLaptops();
+		LogicSevenEight.clickLaptop();
 	}
 
 	@Quando("confirmo a marca")
@@ -146,16 +146,33 @@ public class BlazeSteps {
 		LogicSevenEight.addToCart();
 	}
 
-	@Então("confirmo o produto")
+	@Quando("confirmo o produto")
 	public void confirmoOProduto() {
 		LogicSevenEight.sentMessage();
 	}
+
+	@Então("retorno pagina home")
+	public void retornoPaginaHome() {
+		LogicSevenEight.clickHome();
+	}
+
 	@Quando("que clico em monitors")
-	public void queClicoEmMonitors() {	
+	public void queClicoEmMonitors() {
 		LogicSevenEight.clickMonitor();
 	}
+
 	@Quando("seleciono o primeiro item")
 	public void selecionoOPrimeiroItem() {
-		System.out.println("fdfdasfadf");
+		LogicSevenEight.firstItem();
+	}
+
+	@Quando("clico em cart")
+	public void clicoEmCart() {
+		LogicSevenEight.clickCart();
+	}
+
+	@Então("confirmo o monitor")
+	public void confirmoOMonitor() {
+		LogicSevenEight.confirmItem();
 	}
 }
