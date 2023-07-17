@@ -1,6 +1,8 @@
 package test.page_scenario_nine_and_ten;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import org.junit.Assert;
@@ -14,18 +16,20 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import core.Driver;
 
-public class LogicSevenEight {
-	private static PageLaptopsMonitor page = new PageLaptopsMonitor();
+public class LogicNineTen {
+	private static PageManyItems page = new PageManyItems();
 
-	public static void clickLaptop() {
-		page.getBtnLaptops().click();
-		System.out.println("Clique em Laptops");
+	public static void clickCategory() {
+		
+		activeScroll(page.getBtnCategory());
+		page.getBtnCategory().click();
+		System.out.println("Clique em algumas categorias");
+	}
+	public static void clickAnyItems() {
+		activeScroll(page.getTxtRandonItem());
+		System.out.println("Clique em alguns itens ");
 	}
 
-	public static void selectDell() {
-		activeScroll(page.getTxtDell());
-		System.out.println("selecionou dell");
-	}
 
 	public static void addToCart() {
 		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(10));
@@ -56,9 +60,8 @@ public class LogicSevenEight {
 
 	public static void clickMonitor() {
 		Driver.getWebDriver().navigate().refresh();
-
 		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(page.getBtnMonitor())).click();
+		wait.until(ExpectedConditions.elementToBeClickable(page.getBtnCategory())).click();
 		System.out.println("Clique em Monitor");
 
 	}
@@ -67,17 +70,29 @@ public class LogicSevenEight {
 		page.getBtnCart().click();
 	}
 
-	public static void firstItem() {
-		activeScroll(page.getTxtFirstElement());
-		System.out.println("Clique em monitor");
-	}
-
 	public static void confirmItem() {
 		WebElement cartMonitor = page.getTxtCartMonitor();
 		activeScroll(cartMonitor);
 		String cartMonitorText = cartMonitor.getText();
 		Assert.assertTrue(cartMonitorText.contains("monitor"));
 
+	}
+	
+	public static void mapValues() {
+		  List<WebElement> elements = page.getTxtMapValues();
+
+	   
+	        List<String> values = new ArrayList<>();
+
+	        for (WebElement element : elements) {
+	            String value = element.getText();
+	            values.add(value);
+	        }
+
+	        // Imprimir os valores
+	        for (String value : values) {
+	            System.out.println(value);
+	        }
 	}
 
 	public static void activeScroll(WebElement element) {

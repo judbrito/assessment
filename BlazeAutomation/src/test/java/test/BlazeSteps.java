@@ -4,6 +4,7 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 import test.page_scenario_five_and_six.LogicFiveSix;
+import test.page_scenario_nine_and_ten.LogicNineTen;
 import test.page_scenario_one_and_two.LogicOneTwo;
 import test.page_scenario_seven_and_eigth.LogicSevenEight;
 import test.page_scenario_three_and_four.LogicThreeFour;
@@ -178,13 +179,22 @@ public class BlazeSteps {
 
 	@Quando("que clico em algumas categorias")
 	public void queClicoEmAlgumasCategorias() {
-		
+		LogicNineTen.clickCategory();
+	}
+
+	@Quando("seleciono alguns itens")
+	public void selecionoAlgunsItens() {
+		LogicNineTen.clickAnyItems();
 	}
 
 	@Quando("confirmo os produtos")
 	public void confirmoOsProdutos() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new cucumber.api.PendingException();
+		LogicNineTen.confirmItem();
+	}
+
+	@Quando("somo os valores")
+	public void somoOsValores() {
+		LogicNineTen.mapValues();
 	}
 
 }
