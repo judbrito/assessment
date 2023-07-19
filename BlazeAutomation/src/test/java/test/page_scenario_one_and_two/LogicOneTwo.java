@@ -13,7 +13,7 @@ public class LogicOneTwo {
 	private static PageLoginLogout page = new PageLoginLogout();
 	private static Modal model = new Modal();
 
-	public static void acess() {
+	public static void access() {
 		Driver.webSite("https://www.demoblaze.com/");
 	}
 	

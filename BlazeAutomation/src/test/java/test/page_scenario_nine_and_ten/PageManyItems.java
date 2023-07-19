@@ -2,6 +2,7 @@ package test.page_scenario_nine_and_ten;
 
 
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import org.openqa.selenium.WebElement;
@@ -45,11 +46,13 @@ class PageManyItems {
 	@FindBy(how = How.XPATH, using = "//tbody//td[contains(text(), 'monitor')]")
 	private WebElement txtCartMonitor;
 	
-	@FindBy(how = How.XPATH, using = "//tbody[@id='tbodyid']/tr")
+	@FindBy(how = How.XPATH, using = "//tbody[@id='tbodyid']//td[3]")
 	private List<WebElement> txtMapValues;
+	
+	@FindBy(how = How.ID, using = "totalp")
+	private WebElement txtTotal;
 
 	
-
 
 	public WebElement getBtnCategory() {
 		 Random random = new Random();
@@ -84,6 +87,9 @@ class PageManyItems {
 
 	public List<WebElement> getTxtMapValues() {
 		return txtMapValues;
+	}
+	public WebElement getTxtTotal() {
+		return txtTotal;
 	}
 
 }

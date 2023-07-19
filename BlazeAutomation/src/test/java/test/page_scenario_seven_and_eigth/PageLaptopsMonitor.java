@@ -13,7 +13,7 @@ class PageLaptopsMonitor {
 		PageFactory.initElements(Driver.getWebDriver(), this);
 	}
 
-	@FindBy(how = How.XPATH, using = "//a[@id='itemc'and contains(text(), 'Laptops')or contains(text(), 'monitor')]//a[@id='itemc' and contains(text(),'Phones')]")
+	@FindBy(how = How.XPATH, using = "//a[@id='itemc'and contains(text(), 'Laptops')]")
 	private WebElement btnLaptops;
 	
 	@FindBy(how = How.XPATH, using = "//a[@id='itemc' and contains(text(),'Phones')]")

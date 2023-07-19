@@ -1,5 +1,4 @@
 package test;
-
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
@@ -13,7 +12,7 @@ public class BlazeSteps {
 
 	@Dado("que acesso o site")
 	public void queAcessoOSite() {
-		LogicOneTwo.acess();
+		LogicOneTwo.access();
 	}
 
 	@Dado("acesso o painel de login")
@@ -24,7 +23,6 @@ public class BlazeSteps {
 	@Quando("digito o usuário")
 	public void digitoOUsuário() {
 		LogicOneTwo.writeUser();
-
 	}
 
 	@Quando("a senha")
@@ -37,8 +35,8 @@ public class BlazeSteps {
 		LogicOneTwo.Submit();
 	}
 
-	@Então("confirmo o usuario logado")
-	public void confirmoOUsuarioLogado() {
+	@Então("confirmo o usuário logado")
+	public void confirmoOUsuárioLogado() {
 		LogicOneTwo.emailOn();
 	}
 
@@ -47,8 +45,8 @@ public class BlazeSteps {
 		LogicOneTwo.logout();
 	}
 
-	@Então("valido login ausente")
-	public void validoLoginAusente() {
+	@Então("valido o login ausente")
+	public void validoOLoginAusente() {
 		LogicOneTwo.emailOff();
 	}
 
@@ -97,8 +95,8 @@ public class BlazeSteps {
 		LogicFiveSix.videoProgress();
 	}
 
-	@Então("confirmo video andamento")
-	public void confirmoVideoAndamento() {
+	@Então("confirmo o video andamento")
+	public void confirmoOVideoAndamento() {
 		LogicFiveSix.videoClosed();
 	}
 
@@ -127,13 +125,13 @@ public class BlazeSteps {
 		LogicFiveSix.clickSendMessage();
 	}
 
-	@Quando("valido envio da mensagem")
-	public void validoEnvioDaMensagem() {
+	@Então("valido o envio da mensagem")
+	public void validoOEnvioDaMensagem() {
 		LogicFiveSix.sentMessage();
 	}
 
-	@Quando("que clico em laptops")
-	public void queClicoEmLaptops() {
+	@Quando("clico em laptops")
+	public void clicoEmLaptops() {
 		LogicSevenEight.clickLaptop();
 	}
 
@@ -152,13 +150,13 @@ public class BlazeSteps {
 		LogicSevenEight.sentMessage();
 	}
 
-	@Então("retorno pagina home")
-	public void retornoPaginaHome() {
+	@Então("retorno a página inicial")
+	public void retornoAPáginaInicial() {
 		LogicSevenEight.clickHome();
 	}
 
-	@Quando("que clico em monitors")
-	public void queClicoEmMonitors() {
+	@Quando("clico em monitors")
+	public void clicoEmMonitors() {
 		LogicSevenEight.clickMonitor();
 	}
 
@@ -177,8 +175,8 @@ public class BlazeSteps {
 		LogicSevenEight.confirmItem();
 	}
 
-	@Quando("que clico em algumas categorias")
-	public void queClicoEmAlgumasCategorias() {
+	@Quando("clico em algumas categorias")
+	public void clicoEmAlgumasCategorias() {
 		LogicNineTen.clickCategory();
 	}
 
@@ -187,14 +185,13 @@ public class BlazeSteps {
 		LogicNineTen.clickAnyItems();
 	}
 
-	@Quando("confirmo os produtos")
-	public void confirmoOsProdutos() {
-		LogicNineTen.confirmItem();
+	@Quando("adiciono os itens ao carrinho")
+	public void adicionoOsItensAoCarrinho() {
+		LogicNineTen.addToCart();
 	}
 
 	@Quando("somo os valores")
 	public void somoOsValores() {
 		LogicNineTen.mapValues();
 	}
-
 }
