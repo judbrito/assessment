@@ -13,6 +13,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
     plugin = { "pretty", "html:target/reporthtml", "json:target/report.json" },
     snippets = SnippetType.CAMELCASE,
     monochrome = false,    
+    tags= "@ID_0009",
     dryRun = false,
     strict = false
 )

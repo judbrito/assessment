@@ -46,13 +46,16 @@ class PageManyItems {
 	@FindBy(how = How.XPATH, using = "//tbody//td[contains(text(), 'monitor')]")
 	private WebElement txtCartMonitor;
 	
-	@FindBy(how = How.XPATH, using = "//tbody[@id='tbodyid']//td[3]")
-	private List<WebElement> txtMapValues;
+	@FindBy(how = How.XPATH, using = "//tbody[@id='tbodyid']/tr//td[3]")
+	private WebElement txtMapValues;
 	
 	@FindBy(how = How.ID, using = "totalp")
 	private WebElement txtTotal;
-
 	
+	@FindBy(how = How.XPATH, using = "	//*[@id=\"tbodyid\"]/tr[1]/td[4]/a")
+	private WebElement btnDelete;
+
+
 
 	public WebElement getBtnCategory() {
 		 Random random = new Random();
@@ -84,12 +87,14 @@ class PageManyItems {
 	public WebElement getTxtCartMonitor() {
 		return txtCartMonitor;
 	}
-
-	public List<WebElement> getTxtMapValues() {
-		return txtMapValues;
+	public WebElement getTxtMapValues() {
+	    return txtMapValues;
 	}
 	public WebElement getTxtTotal() {
 		return txtTotal;
+	}
+	public WebElement getbtnDelete() {
+		return btnDelete;
 	}
 
 }

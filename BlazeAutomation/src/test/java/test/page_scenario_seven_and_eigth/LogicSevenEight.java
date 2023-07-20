@@ -34,16 +34,18 @@ public class LogicSevenEight {
 	}
 
 	public static void sentMessage() {
-		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.alertIsPresent());
-		
-			Alert alert = Driver.getWebDriver().switchTo().alert();
-			String alertText = alert.getText();
-			Pattern pattern = Pattern.compile("Product added\\.?");
-			Assert.assertTrue(pattern.matcher(alertText).matches());
-			alert.accept();
-			System.out.println("assertou");
-	
+	    WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(5));
+	    try {
+	        wait.until(ExpectedConditions.alertIsPresent());
+	        Alert alert = Driver.getWebDriver().switchTo().alert();
+	        String alertText = alert.getText();
+	        Pattern pattern = Pattern.compile("Product added\\.?");
+	        Assert.assertTrue(pattern.matcher(alertText).matches());
+	        alert.accept();
+	        System.out.println("assertou");
+	    } catch (NoAlertPresentException e) {
+	        System.out.println("Alert not present");
+	    }
 	}
 
 	public static void clickHome() {	

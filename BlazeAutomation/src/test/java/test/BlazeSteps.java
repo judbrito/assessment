@@ -1,4 +1,6 @@
 package test;
+import org.junit.Assert;
+
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
@@ -25,13 +27,13 @@ public class BlazeSteps {
 		LogicOneTwo.writeUser();
 	}
 
-	@Quando("a senha")
-	public void aSenha() {
+	@Dado("digito a senha")
+	public void digitoASenha() {
 		LogicOneTwo.writePassword();
 	}
 
-	@Quando("clico no botão de logar")
-	public void clicoNoBotãoDeLogar() {
+	@Dado("clico no botão de login")
+	public void clicoNoBotãoDeLogin() {
 		LogicOneTwo.Submit();
 	}
 
@@ -190,8 +192,10 @@ public class BlazeSteps {
 		LogicNineTen.addToCart();
 	}
 
-	@Quando("somo os valores")
-	public void somoOsValores() {
+	@Quando("a soma de todos os valores na tabela é \\{int}")
+	public void aSomaDeTodosOsValoresNaTabelaÉ() {
 		LogicNineTen.mapValues();
+	
 	}
+
 }

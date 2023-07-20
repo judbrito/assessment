@@ -1,6 +1,9 @@
 package test.page_scenario_nine_and_ten;
 
 import core.Driver;
+
+import org.apache.poi.xwpf.usermodel.Document;
+import org.jsoup.Jsoup;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -11,12 +14,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+import javax.lang.model.element.Element;
+import javax.lang.model.util.Elements;
 
 public class LogicNineTen {
 	private static final PageManyItems page = new PageManyItems();
@@ -66,18 +74,30 @@ public class LogicNineTen {
 		}
 	}
 
-	public static void mapValues() {
-
-	    int sum = 0;
-
-	    List<WebElement> elements = page.getTxtMapValues();
-	    for (WebElement element : elements) {
-	        String value = element.getText();
-	        int valor = Integer.parseInt(value);
-	        sum += valor;
-	    }
-
-	    System.out.println("A soma dos valores é: " + sum);
-	    Assert.assertEquals(page.getTxtTotal().getText(), sum);
+	public static int mapValues() {
+		activeScroll(page.getTxtMapValues());
+		String priceXPath = "//tbody[@id='tbodyid']/tr//td[3]";
+		int sum = 0;
+		boolean moreElements = true;
+		while (moreElements) {
+			List<WebElement> priceElements = Driver.getWebDriver().findElements(By.xpath(priceXPath));
+			for (WebElement priceElement : priceElements) {
+				String priceText = priceElement.getText();
+				int price = Integer.parseInt(priceText);
+				sum += price;
+				System.out.println("O valor é " + price);
+			}
+			List<WebElement> loadMoreElements = Driver.getWebDriver()
+					.findElements(By.xpath("//button[contains(text(), 'Load More')]"));
+			if (loadMoreElements.isEmpty()) {
+				moreElements = false;
+			} else {
+				activeScroll(loadMoreElements.get(0));
+				loadMoreElements.get(0).click();
+			}
+		}
+		Assert.assertEquals(sum, Integer.parseInt(page.getTxtTotal().getText()));
+		System.out.println("A soma de todos os valores na tabela é: " + sum);
+		return sum;
 	}
 }
