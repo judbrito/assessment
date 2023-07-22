@@ -54,4 +54,5 @@ public class LogicOneTwo {
 		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(text));
 	}
+	
 }

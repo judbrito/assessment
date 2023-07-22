@@ -15,10 +15,7 @@ class PageLaptopsMonitor {
 
 	@FindBy(how = How.XPATH, using = "//a[@id='itemc'and contains(text(), 'Laptops')]")
 	private WebElement btnLaptops;
-	
-	@FindBy(how = How.XPATH, using = "//a[@id='itemc' and contains(text(),'Phones')]")
-	private WebElement btnPhones;
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@id='itemc' and contains(text(),'Monitors')]")
 	private WebElement btnMonitor;
 
@@ -27,7 +24,7 @@ class PageLaptopsMonitor {
 
 	@FindBy(how = How.XPATH, using = "//a[@class='btn btn-success btn-lg' and contains(text(), 'Add to cart')]")
 	private WebElement txtAddCart;
-	
+
 	@FindBy(how = How.XPATH, using = "(//div[contains(@class, 'col-lg-4')])[1]//a[contains(text(), 'monitor')]")
 	private WebElement txtFirstElement;
 

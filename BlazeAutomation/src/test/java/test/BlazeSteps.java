@@ -1,9 +1,9 @@
 package test;
-import org.junit.Assert;
 
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
+import test.page_scenario_eleven_twelve.LogicElevenTwelve;
 import test.page_scenario_five_and_six.LogicFiveSix;
 import test.page_scenario_nine_and_ten.LogicNineTen;
 import test.page_scenario_one_and_two.LogicOneTwo;
@@ -195,7 +195,32 @@ public class BlazeSteps {
 	@Quando("a soma de todos os valores na tabela é \\{int}")
 	public void aSomaDeTodosOsValoresNaTabelaÉ() {
 		LogicNineTen.mapValues();
-	
+
+	}
+
+	@Quando("clicar em deletar item")
+	public void clicarEmDeletarItem() throws InterruptedException {
+		LogicNineTen.deleteItem();
+	}
+
+	@Então("confirmo carrinho vazio")
+	public void confirmoCarrinhoVazio() {
+		LogicNineTen.noItems();
+	}
+
+	@Dado("que clico em phones")
+	public void queClicoEmPhones() {
+		LogicElevenTwelve.clickPhones();
+	}
+
+	@Quando("confirmo carrinho a quantidade de produtos")
+	public void confirmoCarrinhoAQuantidadeDeProdutos() {
+		LogicElevenTwelve.countElement();
+	}
+
+	@Então("asseguro alterações no valores no cart")
+	public void asseguroAlteraçõesNoValoresNoCart() {
+		LogicElevenTwelve.update();
 	}
 
 }

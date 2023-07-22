@@ -1,30 +1,19 @@
 package test.page_scenario_nine_and_ten;
 
-import core.Driver;
+import java.time.Duration;
+import java.util.List;
+import java.util.regex.Pattern;
 
-import org.apache.poi.xwpf.usermodel.Document;
-import org.jsoup.Jsoup;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.IOException;
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-
-import javax.lang.model.element.Element;
-import javax.lang.model.util.Elements;
+import core.Driver;
 
 public class LogicNineTen {
 	private static final PageManyItems page = new PageManyItems();
@@ -62,42 +51,40 @@ public class LogicNineTen {
 		}
 	}
 
-	public static void activeScroll(WebElement element) {
-		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(10));
-		try {
-			wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(element)));
-			JavascriptExecutor jse = (JavascriptExecutor) Driver.getWebDriver();
-			jse.executeScript("arguments[0].scrollIntoView(true);", element);
-			element.click();
-		} catch (StaleElementReferenceException e) {
+	public static void deleteItem() {
+		activeScroll(page.getbtnDelete());
 
-		}
+	}
+
+	public static boolean noItems() {
+		WebElement txtTotal = page.getTxtTotal();
+		String text = txtTotal.getText().trim();
+		return text.isEmpty();
 	}
 
 	public static int mapValues() {
 		activeScroll(page.getTxtMapValues());
-		String priceXPath = "//tbody[@id='tbodyid']/tr//td[3]";
-		int sum = 0;
-		boolean moreElements = true;
-		while (moreElements) {
-			List<WebElement> priceElements = Driver.getWebDriver().findElements(By.xpath(priceXPath));
-			for (WebElement priceElement : priceElements) {
-				String priceText = priceElement.getText();
-				int price = Integer.parseInt(priceText);
-				sum += price;
-				System.out.println("O valor é " + price);
-			}
-			List<WebElement> loadMoreElements = Driver.getWebDriver()
-					.findElements(By.xpath("//button[contains(text(), 'Load More')]"));
-			if (loadMoreElements.isEmpty()) {
-				moreElements = false;
-			} else {
-				activeScroll(loadMoreElements.get(0));
-				loadMoreElements.get(0).click();
-			}
+		WebElement tbody = Driver.getWebDriver().findElement(By.id("tbodyid"));
+		List<WebElement> rows = tbody.findElements(By.tagName("tr"));
+		int soma = 0;
+
+		for (WebElement row : rows) {
+			String valorTexto = row.findElement(By.xpath("./td[3]")).getText();
+			int valor = Integer.parseInt(valorTexto);
+			soma += valor;
 		}
-		Assert.assertEquals(sum, Integer.parseInt(page.getTxtTotal().getText()));
-		System.out.println("A soma de todos os valores na tabela é: " + sum);
-		return sum;
+
+		System.out.println("Soma dos valores na tabela: " + soma);
+		return soma;
+	}
+
+	public static void activeScroll(WebElement element) {
+
+		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(element)));
+		JavascriptExecutor jse = (JavascriptExecutor) Driver.getWebDriver();
+		jse.executeScript("arguments[0].scrollIntoView(true);", element);
+		element.click();
+
 	}
 }

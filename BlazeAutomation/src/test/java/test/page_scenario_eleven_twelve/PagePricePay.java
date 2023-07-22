@@ -1,4 +1,4 @@
-package test.page_scenario_nine_and_ten;
+package test.page_scenario_eleven_twelve;
 
 import java.util.List;
 import java.util.Random;
@@ -10,14 +10,17 @@ import org.openqa.selenium.support.PageFactory;
 
 import core.Driver;
 
-class PageManyItems {
+class PagePricePay {
 
-	public PageManyItems() {
+	public PagePricePay() {
 		PageFactory.initElements(Driver.getWebDriver(), this);
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@id='itemc'][position() < 4]")
 	private List<WebElement> btnCategory;
+
+	@FindBy(how = How.XPATH, using = "//a[@id='itemc' and contains(text(),'Phones')]")
+	private WebElement btnPhones;
 
 	@FindBy(how = How.XPATH, using = "//a[@class='hrefch'][position() < 4]")
 	private WebElement txtRandonItem;
@@ -44,10 +47,13 @@ class PageManyItems {
 	private WebElement txtTotal;
 
 	@FindBy(how = How.XPATH, using = "//tbody[@id='tbodyid']/tr[1]/td[4]/a")
-	private WebElement btnDelete;
+	private List<WebElement> btnDelete;
 
 	@FindBy(how = How.ID, using = "//tbody[@id='tbodyid']/tr")
 	private List<WebElement> txtProducts;
+
+	@FindBy(how = How.ID, using = "//tbody[@id='tbodyid']/tr//td[3]")
+	private List<WebElement> txtUpdate;
 
 	public WebElement getBtnCategory() {
 		Random random = new Random();
@@ -88,12 +94,20 @@ class PageManyItems {
 		return txtTotal;
 	}
 
-	public WebElement getbtnDelete() {
+	public List<WebElement> getbtnDelete() {
 		return btnDelete;
 	}
 
 	public List<WebElement> getProducts() {
 		return txtProducts;
+	}
+
+	public WebElement getBtnPhones() {
+		return btnPhones;
+	}
+
+	public List<WebElement> getUpdate() {
+		return txtUpdate;
 	}
 
 }
