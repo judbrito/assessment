@@ -159,7 +159,7 @@ public class BlazeSteps {
 
 	@Quando("confirmo o produto")
 	public void confirmoOProduto() {
-		LogicFiveSix.sentMessage();
+		LogicSevenEight.firstItemDell();
 	}
 
 	@Então("retorno a página inicial")

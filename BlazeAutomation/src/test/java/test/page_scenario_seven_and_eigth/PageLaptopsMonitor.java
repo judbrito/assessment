@@ -20,6 +20,9 @@ class PageLaptopsMonitor {
 	private WebElement btnMonitor;
 
 	@FindBy(how = How.XPATH, using = "//h4[@class='card-title']//a[contains(text(), 'Dell') or contains(text(), 'monitor')]")
+	private WebElement txtSelectMonitor;
+
+	@FindBy(how = How.XPATH, using = "//h2[@class='name' and contains(text(), 'Dell')]")
 	private WebElement txtDell;
 
 	@FindBy(how = How.XPATH, using = "//a[@class='btn btn-success btn-lg' and contains(text(), 'Add to cart')]")
@@ -31,7 +34,7 @@ class PageLaptopsMonitor {
 	@FindBy(how = How.ID, using = "cartur")
 	private WebElement btnCart;
 
-	@FindBy(how = How.XPATH, using = "//tbody[@id='tbodyid']//td[contains(text(), 'monitor')]")
+	@FindBy(how = How.XPATH, using = "//tbody[@id='tbodyid']/tr/td[2]")
 	private WebElement txtConfirmProduct;
 
 	@FindBy(how = How.XPATH, using = "//a[@class= 'nav-link' and contains(text(), 'Home ')]")
@@ -44,20 +47,20 @@ class PageLaptopsMonitor {
 		return btnLaptops;
 	}
 
+	public WebElement getBtnMonitor() {
+		return btnMonitor;
+	}
+
+	public WebElement getTxtSelectMonitor() {
+		return txtSelectMonitor;
+	}
+
 	public WebElement getTxtDell() {
 		return txtDell;
 	}
 
 	public WebElement getTxtAddCart() {
 		return txtAddCart;
-	}
-
-	public WebElement getBtnHome() {
-		return btnHome;
-	}
-
-	public WebElement getBtnMonitor() {
-		return btnMonitor;
 	}
 
 	public WebElement getTxtFirstElement() {
@@ -72,7 +75,12 @@ class PageLaptopsMonitor {
 		return txtConfirmProduct;
 	}
 
+	public WebElement getBtnHome() {
+		return btnHome;
+	}
+
 	public WebElement getTxtCartMonitor() {
 		return txtCartMonitor;
 	}
+
 }

@@ -1,7 +1,6 @@
 package test.page_scenario_nine_and_ten;
 
 import java.util.List;
-import java.util.Random;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,11 +15,11 @@ class PageManyItems {
 		PageFactory.initElements(Driver.getWebDriver(), this);
 	}
 
-	@FindBy(how = How.XPATH, using = "//a[@id='itemc'][position() < 4]")
+	@FindBy(how = How.XPATH, using = "//a[@id='itemc'][position() < 5]")
 	private List<WebElement> btnCategory;
 
-	@FindBy(how = How.XPATH, using = "//a[@class='hrefch'][position() < 4]")
-	private WebElement txtRandonItem;
+	@FindBy(how = How.XPATH, using = "//a[@class='hrefch'][position() < 5]")
+	private WebElement txtAnyItems;
 
 	@FindBy(how = How.XPATH, using = "//a[@class='btn btn-success btn-lg' and contains(text(), 'Add to cart')]")
 	private WebElement txtAddCart;
@@ -49,15 +48,13 @@ class PageManyItems {
 	@FindBy(how = How.ID, using = "//tbody[@id='tbodyid']/tr")
 	private List<WebElement> txtProducts;
 
-	public WebElement getBtnCategory() {
-		Random random = new Random();
-		int randomIndex = random.nextInt(btnCategory.size());
-		return btnCategory.get(randomIndex);
+	public List<WebElement> getBtnCategory() {
+		return btnCategory;
 
 	}
 
-	public WebElement getTxtRandonItem() {
-		return txtRandonItem;
+	public WebElement getTxtAnyItems() {
+		return txtAnyItems;
 	}
 
 	public WebElement getTxtAddCart() {
