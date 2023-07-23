@@ -1,13 +1,10 @@
 package test.page_scenario_one_and_two;
 
-import java.time.Duration;
-
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import core.Driver;
+import core.Utility;
 
 public class LogicOneTwo {
 	private static PageLoginLogout page = new PageLoginLogout();
@@ -15,26 +12,32 @@ public class LogicOneTwo {
 
 	public static void access() {
 		Driver.webSite("https://www.demoblaze.com/");
+
 	}
-	
-	public static void clickLogin() {		
+
+	public static void clickLogin() {
 		page.getBtnUser().click();
 	}
 
 	public static void writeUser() {
-		page.getTxtUser().sendKeys(model.getEmail());
+		WebElement txtUser = page.getTxtUser();
+		Utility.timeSelenium(txtUser);
+		txtUser.sendKeys(model.getEmail());
 	}
 
 	public static void writePassword() {
-		page.getTxtPassword().sendKeys(model.getPassWord());
+		WebElement TxtPassword = page.getTxtPassword();
+		Utility.timeSelenium(TxtPassword);
+		TxtPassword.sendKeys(model.getPassWord());
 	}
+
 	public static void Submit() {
 		page.getBtnSubmit().click();
 	}
 
 	public static void emailOn() {
 		WebElement islogged = page.getTxtValidationOn();
-		timeSelenium(islogged);
+		Utility.timeSelenium(islogged);
 		Assert.assertEquals(true, islogged.isDisplayed());
 		System.out.println("O endereço de email está visível na tela.");
 	}
@@ -45,14 +48,9 @@ public class LogicOneTwo {
 
 	public static void emailOff() {
 		WebElement isUnlogged = page.getTxtValidationOff();
-		timeSelenium(isUnlogged);
+		Utility.timeSelenium(isUnlogged);
 		Assert.assertEquals(true, isUnlogged.isDisplayed());
 		System.out.println("O Botão log out não está visível na tela.");
 	}
 
-	public static void timeSelenium(WebElement text) {
-		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOf(text));
-	}
-	
 }

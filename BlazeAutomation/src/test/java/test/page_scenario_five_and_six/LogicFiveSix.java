@@ -1,41 +1,37 @@
 package test.page_scenario_five_and_six;
 
-import java.time.Duration;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import core.Driver;
+import core.Utility;
 
 public class LogicFiveSix {
 	private static PageVideoContact page = new PageVideoContact();
 	private static Modal model = new Modal();
 
 	public static void clickAbout() {
-		page.getBtnAbout().click();
+		Utility.timeSelenium(page.getBtnAbout());
 		System.out.println("clique sobre");
 	}
 
 	public static void clickPlay() {
-		timeSelenium(page.getBtnPlay());
-		page.getBtnPlay().click();
+		Utility.timeSelenium(page.getBtnPlay());
+
 	}
 
 	public static void videoProgress() {
-		page.getBtnPlay().isDisplayed();
-		if (page.getBtnPlay().isDisplayed()) {
-			System.out.println("Video em andamento");
-		} else {
-			System.out.println("video não encontrado");
-		}
+		Utility.timeSelenium(page.getTxtVideo());
+		boolean isVideoVisible = page.getTxtVideo().isDisplayed();
+		assertTrue("Vídeo não encontrado", isVideoVisible);
+
+		System.out.println("Vídeo em andamento");
 	}
 
 	public static void videoClosed() {
-		timeSelenium(page.getBtnClose());
+		Utility.timeSelenium(page.getBtnClose());
 		page.getBtnClose().click();
 	}
 
@@ -45,7 +41,7 @@ public class LogicFiveSix {
 	}
 
 	public static void writeEmail() {
-		timeSelenium(page.getTxtEmail());
+		Utility.timeSelenium(page.getTxtEmail());
 		page.getTxtEmail().sendKeys(model.getEmail());
 	}
 
@@ -63,19 +59,11 @@ public class LogicFiveSix {
 	}
 
 	public static void sentMessage() {
-		try {
-			Alert alert = Driver.getWebDriver().switchTo().alert();
-			String alertText = alert.getText();
-			Assert.assertEquals("Thanks for the message!!", alertText);
-			alert.accept();
-		} catch (NoAlertPresentException e) {
-
-		}
+		Utility.alertIsPresent();
+		Alert alert = Driver.getWebDriver().switchTo().alert();
+		String alertText = alert.getText();
+		Assert.assertEquals("Thanks for the message!!", alertText);
+		alert.accept();
 	}
 
-	public static void timeSelenium(WebElement text) {
-		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOf(text));
-		wait.until(ExpectedConditions.elementToBeClickable(text));
-	}
 }

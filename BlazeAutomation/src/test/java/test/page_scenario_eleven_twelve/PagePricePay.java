@@ -55,11 +55,39 @@ class PagePricePay {
 	@FindBy(how = How.ID, using = "//tbody[@id='tbodyid']/tr//td[3]")
 	private List<WebElement> txtUpdate;
 
+	@FindBy(how = How.CLASS_NAME, using = "btn-success")
+	private WebElement btnPlaceOrder;
+
+	@FindBy(how = How.ID, using = "name")
+	private WebElement getName;
+
+	@FindBy(how = How.ID, using = "country")
+	private WebElement getCountry;
+
+	@FindBy(how = How.ID, using = "city")
+	private WebElement getCity;
+
+	@FindBy(how = How.ID, using = "card")
+	private WebElement getCreditcard;
+
+	@FindBy(how = How.CLASS_NAME, using = "month")
+	private WebElement getMonth;
+
+	@FindBy(how = How.CLASS_NAME, using = "year")
+	private WebElement getYear;
+
+	@FindBy(how = How.CLASS_NAME, using = "btn-primary")
+	private WebElement btnOk;
+
 	public WebElement getBtnCategory() {
 		Random random = new Random();
 		int randomIndex = random.nextInt(btnCategory.size());
 		return btnCategory.get(randomIndex);
 
+	}
+
+	public WebElement getBtnPhones() {
+		return btnPhones;
 	}
 
 	public WebElement getTxtRandonItem() {
@@ -94,20 +122,47 @@ class PagePricePay {
 		return txtTotal;
 	}
 
-	public List<WebElement> getbtnDelete() {
+	public List<WebElement> getBtnDelete() {
 		return btnDelete;
 	}
 
-	public List<WebElement> getProducts() {
+	public List<WebElement> getTxtProducts() {
 		return txtProducts;
 	}
 
-	public WebElement getBtnPhones() {
-		return btnPhones;
-	}
-
-	public List<WebElement> getUpdate() {
+	public List<WebElement> getTxtUpdate() {
 		return txtUpdate;
 	}
 
+	public WebElement getBtnPlaceOrder() {
+		return btnPlaceOrder;
+	}
+
+	public WebElement getGetName(String string) {
+		return getName;
+	}
+
+	public WebElement getGetCountry(String string) {
+		return getCountry;
+	}
+
+	public WebElement getGetCity(String string) {
+		return getCity;
+	}
+
+	public WebElement getGetCreditcard(String string) {
+		return getCreditcard;
+	}
+
+	public WebElement getGetMonth(String string) {
+		return getMonth;
+	}
+
+	public WebElement getGetYear(String string) {
+		return getYear;
+	}
+
+	public WebElement getBtnOk() {
+		return btnOk;
+	}
 }

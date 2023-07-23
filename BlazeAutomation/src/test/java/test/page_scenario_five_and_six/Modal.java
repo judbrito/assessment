@@ -8,9 +8,7 @@ public class Modal {
 	private String getName;
 	private String getMessage;
 
-	
 	static MassaDados dados = new MassaDados("./src/test/resources/massaDados.xlsx", "dados");
-
 
 	public String getEmail() {
 		this.getEmail = dados.obterValor("ID_0006", 1);
@@ -21,12 +19,12 @@ public class Modal {
 	public String getName() {
 		this.getName = dados.obterValor("ID_0006", 2);
 		return getName;
-	
+
 	}
 
 	public String getMessage() {
 		this.getMessage = dados.obterValor("ID_0006", 3);
 		return getMessage;
-	}	
-	
+	}
+
 }

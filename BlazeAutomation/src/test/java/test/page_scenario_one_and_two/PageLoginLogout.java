@@ -7,8 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import core.Driver;
 
-
-class PageLoginLogout{
+class PageLoginLogout {
 
 	public PageLoginLogout() {
 		PageFactory.initElements(Driver.getWebDriver(), this);
@@ -25,10 +24,10 @@ class PageLoginLogout{
 
 	@FindBy(how = How.XPATH, using = "//button[@class='btn btn-primary' and text()='Log in']")
 	private WebElement btnSubmitUser;
-	
+
 	@FindBy(how = How.ID, using = "nameofuser")
 	private WebElement txtValidationOn;
-	
+
 	@FindBy(how = How.ID, using = "login2")
 	private WebElement txtValidationOff;
 
@@ -40,16 +39,17 @@ class PageLoginLogout{
 	}
 
 	public WebElement getTxtUser() {
-		LogicOneTwo.timeSelenium(txtUser);
 		return txtUser;
 	}
 
 	public WebElement getTxtPassword() {
 		return txtPassword;
 	}
+
 	public WebElement getBtnSubmit() {
 		return btnSubmitUser;
 	}
+
 	public WebElement getTxtValidationOn() {
 		return txtValidationOn;
 	}
@@ -60,6 +60,6 @@ class PageLoginLogout{
 
 	public WebElement getBtnLogout() {
 		return btnLogout;
-	}	
-	
+	}
+
 }

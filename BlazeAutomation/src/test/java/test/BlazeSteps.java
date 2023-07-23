@@ -62,8 +62,8 @@ public class BlazeSteps {
 		LogicThreeFour.writeSingUser();
 	}
 
-	@Quando("a nova senha")
-	public void aNovaSenha() {
+	@Quando("digito a nova senha")
+	public void digitoANovaSenha() {
 		LogicThreeFour.writeSingPassword();
 	}
 
@@ -77,9 +77,19 @@ public class BlazeSteps {
 		LogicThreeFour.signSucessful();
 	}
 
+	@Quando("digito o usuário existente")
+	public void digitoOUsuárioExistente() {
+		LogicThreeFour.writeUserExisting();
+	}
+
 	@Então("valido a mensagem conta existente")
 	public void validoAMensagemContaExistente() {
 		LogicThreeFour.signUnsuccessful();
+	}
+
+	@Quando("clico no botão fechar modal")
+	public void clicoNoBotãoFecharModal() {
+		LogicThreeFour.closeModal();
 	}
 
 	@Dado("que clico em About Us")
@@ -149,7 +159,7 @@ public class BlazeSteps {
 
 	@Quando("confirmo o produto")
 	public void confirmoOProduto() {
-		LogicSevenEight.sentMessage();
+		LogicFiveSix.sentMessage();
 	}
 
 	@Então("retorno a página inicial")
@@ -189,7 +199,7 @@ public class BlazeSteps {
 
 	@Quando("adiciono os itens ao carrinho")
 	public void adicionoOsItensAoCarrinho() {
-		LogicNineTen.addToCart();
+		LogicSevenEight.addToCart();
 	}
 
 	@Quando("a soma de todos os valores na tabela é \\{int}")
@@ -218,9 +228,44 @@ public class BlazeSteps {
 		LogicElevenTwelve.countElement();
 	}
 
-	@Então("asseguro alterações no valores no cart")
-	public void asseguroAlteraçõesNoValoresNoCart() {
-		LogicElevenTwelve.update();
+	@Quando("clico no botão place order")
+	public void clicoNoBotãoPlaceOrder() {
+		LogicElevenTwelve.clickPlaceOrder();
+	}
+
+	@Quando("digito o nome")
+	public void digitoONome() {
+		LogicElevenTwelve.writeName();
+	}
+
+	@Quando("digito o country")
+	public void digitoOCountry() {
+		LogicElevenTwelve.writeCountry();
+	}
+
+	@Quando("digito o city")
+	public void digitoOCity() {
+		LogicElevenTwelve.writeCity();
+	}
+
+	@Quando("digito o credit card")
+	public void digitoOCreditCard() {
+		LogicElevenTwelve.writeCredit();
+	}
+
+	@Quando("digito o month")
+	public void digitoOMonth() {
+		LogicElevenTwelve.writeMonth();
+	}
+
+	@Então("clico no botão purchase")
+	public void clicoNoBotãoPurchase() {
+		LogicElevenTwelve.clickOk();
+	}
+
+	@Então("clico no botão ok")
+	public void clicoNoBotãoOk() {
+
 	}
 
 }

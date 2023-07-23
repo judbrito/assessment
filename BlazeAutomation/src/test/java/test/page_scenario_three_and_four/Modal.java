@@ -6,6 +6,7 @@ public class Modal {
 
 	private String getSignEmail;
 	private String getSignPassWord;
+	private String UserExiting;
 
 	static MassaDados dados = new MassaDados("./src/test/resources/massaDados.xlsx", "dados");
 
@@ -18,5 +19,11 @@ public class Modal {
 	public String getSignPasword() {
 		this.getSignPassWord = dados.obterValor("ID_0003", 2);
 		return getSignPassWord;
+	}
+
+	public String getUserExiting() {
+		this.UserExiting = dados.obterValor("ID_0004", 1);
+		return UserExiting;
+
 	}
 }

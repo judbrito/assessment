@@ -6,12 +6,12 @@ import java.util.regex.Pattern;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import core.Driver;
+import core.Utility;
 
 public class LogicSevenEight {
 	private static PageLaptopsMonitor page = new PageLaptopsMonitor();
@@ -28,9 +28,7 @@ public class LogicSevenEight {
 
 	public static void addToCart() {
 		activeScroll(page.getTxtAddCart());
-		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(5));
-
-		wait.until(ExpectedConditions.alertIsPresent());
+		Utility.alertIsPresent();
 		Alert alert = Driver.getWebDriver().switchTo().alert();
 		String alertText = alert.getText();
 		Pattern pattern = Pattern.compile("Product added\\.?");
@@ -39,22 +37,6 @@ public class LogicSevenEight {
 
 		System.out.println("Adicionando ao carrinho");
 
-	}
-
-	public static void sentMessage() {
-		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(5));
-		try {
-			wait.until(ExpectedConditions.alertIsPresent());
-			Alert alert = Driver.getWebDriver().switchTo().alert();
-			String alertText = alert.getText();
-			Pattern pattern = Pattern.compile("Product added\\.?");
-			Assert.assertTrue(pattern.matcher(alertText).matches());
-			alert.accept();
-
-			System.out.println("assertou");
-		} catch (NoAlertPresentException e) {
-			System.out.println("Alert not present");
-		}
 	}
 
 	public static void clickHome() {

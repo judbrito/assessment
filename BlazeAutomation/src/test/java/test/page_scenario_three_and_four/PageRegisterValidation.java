@@ -7,46 +7,46 @@ import org.openqa.selenium.support.PageFactory;
 
 import core.Driver;
 
-
 class PageRegisterValidation {
 
 	public PageRegisterValidation() {
 		PageFactory.initElements(Driver.getWebDriver(), this);
 
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@id='signin2']")
-	private WebElement btnSingModal;	
+	private WebElement btnSingModal;
 
 	@FindBy(how = How.ID, using = "sign-username")
 	private WebElement txtSignUser;
-		
-	@FindBy(how = How.ID, using = "sign-password")
+
+	@FindBy(how = How.XPATH, using = "//input[@id='sign-password']")
 	private WebElement txtSignPassword;
-	
-	@FindBy(how = How.XPATH, using = "//div[@id='signInModal']//span")
+
+	@FindBy(how = How.XPATH, using = "//h5[@id='signInModalLabel' and text()='Sign up']//..//span")
 	private WebElement btnClose;
-	
+
 	@FindBy(how = How.XPATH, using = "//button[@class='btn btn-primary' and text()='Sign up']")
 	private WebElement btnSingSubmit;
-	
+
 	public WebElement getBtnSingModal() {
 		return btnSingModal;
 	}
-	
-	public WebElement getClose() {
-		return btnClose;
-	}
 
 	public WebElement getTxtSignUser() {
-		LogicThreeFour.timeSelenium(txtSignUser);
 		return txtSignUser;
 	}
 
 	public WebElement getTxtSignPassword() {
 		return txtSignPassword;
 	}
+
+	public WebElement getBtnClose() {
+		return btnClose;
+	}
+
 	public WebElement getBtnSingSubmit() {
 		return btnSingSubmit;
 	}
+
 }
