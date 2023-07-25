@@ -41,14 +41,13 @@ public class Utility {
 	}
 
 	public static void clickButtonJs(WebElement element) {
-		Driver.getWebDriver().navigate().refresh();
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver.getWebDriver();
 		jsExecutor.executeScript("arguments[0].click();", element);
 
 	}
 
-	public static void clickRandon(List<WebElement> item) {
-		List<WebElement> List = item;
+	public static void clickRandon(List<WebElement> element) {
+		List<WebElement> List = element;
 		int Elements = List.size();
 		if (Elements > 0) {
 			int randomIndex = new Random().nextInt(Elements);
@@ -59,4 +58,5 @@ public class Utility {
 			System.out.println("Nenhum elemento encontrado na lista ");
 		}
 	}
+
 }

@@ -2,6 +2,7 @@ package test.page_scenario_eleven_twelve;
 
 import org.openqa.selenium.WebElement;
 
+import core.Driver;
 import core.Utility;
 
 public class LogicElevenTwelve {
@@ -62,7 +63,8 @@ public class LogicElevenTwelve {
 	}
 
 	public static void clickOk() {
-		Utility.clickButtonJs(page.getBtnOk());
+		Driver.getWebDriver().navigate().refresh();
+		Utility.timeWait(page.getBtnOk());
 
 	}
 

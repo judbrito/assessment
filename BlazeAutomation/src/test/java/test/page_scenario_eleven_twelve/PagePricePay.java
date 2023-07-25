@@ -78,8 +78,9 @@ class PagePricePay {
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Purchase')]")
 	private WebElement btnPurchase;
 
-	@FindBy(how = How.CLASS_NAME, using = "//div[@class='sa-confirm-button-container']//button[contains(text(),'OK')]")
+	@FindBy(how = How.CLASS_NAME, using = "//div[10]//div[@class='sa-confirm-button-container']//button[contains(text(),'OK')]")
 	private WebElement btnOk;
+
 	@FindBy(how = How.ID, using = "//h2[contains(text(),'Thank you for your purchase!')]")
 	private WebElement txtThanksMessage;
 
