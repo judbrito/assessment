@@ -39,6 +39,11 @@ class PageManyItems {
 	@FindBy(how = How.XPATH, using = "//tbody[@id='tbodyid']/tr//td[3]")
 	private WebElement txtMapValues;
 
+	@FindBy(how = How.ID, using = "tbodyid")
+	WebElement tbody;
+
+	@FindBy(how = How.XPATH, using = "//tr")
+	List<WebElement> rows;
 	@FindBy(how = How.ID, using = "totalp")
 	private WebElement txtTotal;
 
@@ -50,7 +55,6 @@ class PageManyItems {
 
 	public List<WebElement> getBtnCategory() {
 		return btnCategory;
-
 	}
 
 	public WebElement getTxtAnyItems() {
@@ -81,15 +85,23 @@ class PageManyItems {
 		return txtMapValues;
 	}
 
+	public WebElement getTbody() {
+		return tbody;
+	}
+
+	public List<WebElement> getRows() {
+		return rows;
+	}
+
 	public WebElement getTxtTotal() {
 		return txtTotal;
 	}
 
-	public WebElement getbtnDelete() {
+	public WebElement getBtnDelete() {
 		return btnDelete;
 	}
 
-	public List<WebElement> getProducts() {
+	public List<WebElement> getTxtProducts() {
 		return txtProducts;
 	}
 

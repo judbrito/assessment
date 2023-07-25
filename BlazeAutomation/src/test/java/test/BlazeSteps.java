@@ -165,6 +165,7 @@ public class BlazeSteps {
 	@Então("retorno a página inicial")
 	public void retornoAPáginaInicial() {
 		LogicSevenEight.clickHome();
+
 	}
 
 	@Quando("clico em monitors")
@@ -208,9 +209,9 @@ public class BlazeSteps {
 
 	}
 
-	@Quando("clicar em deletar item")
-	public void clicarEmDeletarItem() throws InterruptedException {
-		LogicNineTen.deleteItem();
+	@Então("verifico ambos os resultados")
+	public void verificoAmbosOsResultados() {
+		LogicNineTen.bothValue();
 	}
 
 	@Então("confirmo carrinho vazio")
@@ -223,9 +224,9 @@ public class BlazeSteps {
 		LogicElevenTwelve.clickPhones();
 	}
 
-	@Quando("confirmo carrinho a quantidade de produtos")
-	public void confirmoCarrinhoAQuantidadeDeProdutos() {
-		LogicElevenTwelve.countElement();
+	@Quando("deleto um item")
+	public void deletoUmItem() {
+		LogicNineTen.ValueAfterDelete();
 	}
 
 	@Quando("clico no botão place order")
@@ -258,14 +259,19 @@ public class BlazeSteps {
 		LogicElevenTwelve.writeMonth();
 	}
 
-	@Então("clico no botão purchase")
-	public void clicoNoBotãoPurchase() {
-		LogicElevenTwelve.clickOk();
+	@Quando("digito o year")
+	public void digitoOyear() {
+		LogicElevenTwelve.writeYear();
 	}
 
-	@Então("clico no botão ok")
-	public void clicoNoBotãoOk() {
+	@Então("clico no botão purchase")
+	public void clicoNoBotãoPurchase() {
+		LogicElevenTwelve.clickPurchase();
+	}
 
+	@Então("clico no Ok")
+	public void clicoNoOk() {
+		LogicElevenTwelve.clickOk();
 	}
 
 }

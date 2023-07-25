@@ -14,7 +14,7 @@ class PageRegisterValidation {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//a[@id='signin2']")
+	@FindBy(how = How.XPATH, using = "//a[@id='signin2' and contains(text(),'Sign up')]")
 	private WebElement btnSingModal;
 
 	@FindBy(how = How.ID, using = "sign-username")

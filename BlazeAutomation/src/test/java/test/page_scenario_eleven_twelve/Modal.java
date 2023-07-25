@@ -1,6 +1,9 @@
 package test.page_scenario_eleven_twelve;
 
+import org.openqa.selenium.WebElement;
+
 import core.MassaDados;
+import core.Utility;
 
 public class Modal {
 
@@ -34,7 +37,7 @@ public class Modal {
 	}
 
 	public String getGetMonth() {
-		this.getYear = dados.obterValor("ID_0012", 5);
+		this.getMonth = dados.obterValor("ID_0012", 5);
 		return getMonth;
 	}
 
@@ -43,4 +46,9 @@ public class Modal {
 		return getYear;
 	}
 
+	public void writeText(WebElement element, String text) {
+		Utility.timeSelenium(element);
+		Utility.activeScroll(element);
+		element.sendKeys(text);
+	}
 }

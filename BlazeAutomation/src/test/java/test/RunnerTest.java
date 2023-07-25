@@ -11,4 +11,5 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		"html:target/reporthtml",
 		"json:target/report.json" }, snippets = SnippetType.CAMELCASE, monochrome = false, dryRun = false, strict = false)
 public class RunnerTest {
+
 }

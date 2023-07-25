@@ -12,19 +12,19 @@ public class LogicThreeFour {
 	private static Modal model = new Modal();
 
 	public static void clickSingModal() {
-		page.getBtnSingModal().click();
+		Utility.timeSelenium(page.getBtnSingModal());
 	}
 
 	public static void writeSingUser() {
 		WebElement txtSingUser = page.getTxtSignUser();
-		Utility.timeSelenium(txtSingUser);
+		Utility.timeWait(txtSingUser);
 		txtSingUser.sendKeys(model.getSignUser());
 
 	}
 
 	public static void writeSingPassword() {
 		WebElement txtSingPassword = page.getTxtSignPassword();
-		Utility.timeSelenium(txtSingPassword);
+		Utility.timeWait(txtSingPassword);
 		txtSingPassword.sendKeys(model.getSignPasword());
 
 	}

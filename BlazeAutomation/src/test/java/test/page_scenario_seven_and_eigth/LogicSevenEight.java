@@ -1,13 +1,10 @@
 package test.page_scenario_seven_and_eigth;
 
-import java.time.Duration;
 import java.util.regex.Pattern;
 
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import core.Driver;
 import core.Utility;
@@ -37,18 +34,18 @@ public class LogicSevenEight {
 	}
 
 	public static void clickHome() {
-		Utility.activeScroll(page.getBtnHome());
+		Utility.timeSelenium(page.getBtnHome());
 	}
 
 	public static void clickMonitor() {
 		Driver.getWebDriver().navigate().refresh();
-		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.elementToBeClickable(page.getBtnMonitor())).click();
+		Utility.timeSelenium(page.getBtnMonitor());
 		System.out.println("Clique em Monitor");
 	}
 
 	public static void clickCart() {
 		page.getBtnCart().click();
+
 	}
 
 	public static void firstItem() {

@@ -1,7 +1,6 @@
 package test.page_scenario_eleven_twelve;
 
 import java.util.List;
-import java.util.Random;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,7 +16,7 @@ class PagePricePay {
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@id='itemc'][position() < 4]")
-	private List<WebElement> btnCategory;
+	private WebElement btnCategory;
 
 	@FindBy(how = How.XPATH, using = "//a[@id='itemc' and contains(text(),'Phones')]")
 	private WebElement btnPhones;
@@ -59,31 +58,37 @@ class PagePricePay {
 	private WebElement btnPlaceOrder;
 
 	@FindBy(how = How.ID, using = "name")
-	private WebElement getName;
+	private WebElement txtName;
 
 	@FindBy(how = How.ID, using = "country")
-	private WebElement getCountry;
+	private WebElement txtCountry;
 
 	@FindBy(how = How.ID, using = "city")
-	private WebElement getCity;
+	private WebElement txtCity;
 
 	@FindBy(how = How.ID, using = "card")
-	private WebElement getCreditcard;
+	private WebElement txtCreditcard;
 
-	@FindBy(how = How.CLASS_NAME, using = "month")
-	private WebElement getMonth;
+	@FindBy(how = How.ID, using = "month")
+	private WebElement txtMonth;
 
-	@FindBy(how = How.CLASS_NAME, using = "year")
-	private WebElement getYear;
+	@FindBy(how = How.ID, using = "year")
+	private WebElement txtYear;
 
-	@FindBy(how = How.CLASS_NAME, using = "btn-primary")
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Purchase')]")
+	private WebElement btnPurchase;
+
+	@FindBy(how = How.CLASS_NAME, using = "//div[@class='sa-confirm-button-container']//button[contains(text(),'OK')]")
 	private WebElement btnOk;
+	@FindBy(how = How.ID, using = "//h2[contains(text(),'Thank you for your purchase!')]")
+	private WebElement txtThanksMessage;
+
+	public WebElement getTxtCategory() {
+		return txtThanksMessage;
+	}
 
 	public WebElement getBtnCategory() {
-		Random random = new Random();
-		int randomIndex = random.nextInt(btnCategory.size());
-		return btnCategory.get(randomIndex);
-
+		return btnCategory;
 	}
 
 	public WebElement getBtnPhones() {
@@ -138,31 +143,36 @@ class PagePricePay {
 		return btnPlaceOrder;
 	}
 
-	public WebElement getGetName(String string) {
-		return getName;
+	public WebElement getTxtName() {
+		return txtName;
 	}
 
-	public WebElement getGetCountry(String string) {
-		return getCountry;
+	public WebElement getTxtCountry() {
+		return txtCountry;
 	}
 
-	public WebElement getGetCity(String string) {
-		return getCity;
+	public WebElement getTxtCity() {
+		return txtCity;
 	}
 
-	public WebElement getGetCreditcard(String string) {
-		return getCreditcard;
+	public WebElement getTxtCreditcard() {
+		return txtCreditcard;
 	}
 
-	public WebElement getGetMonth(String string) {
-		return getMonth;
+	public WebElement getTxtMonth() {
+		return txtMonth;
 	}
 
-	public WebElement getGetYear(String string) {
-		return getYear;
+	public WebElement getTxtYear() {
+		return txtYear;
+	}
+
+	public WebElement getBtnPurchase() {
+		return btnPurchase;
 	}
 
 	public WebElement getBtnOk() {
 		return btnOk;
 	}
+
 }
