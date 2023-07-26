@@ -13,13 +13,14 @@ Funcionalidade:
 
   @ID_0002
   Cenário: Fazer logout no site
-    Dado que clico em logout
-    Quando confirmo o usuário logado
+    Dado confirmo o usuário logado
+    Quando que clico em logout
     Então valido o login ausente
 
   @ID_0003
   Cenário: Cadastrar Usuário no site
-    Dado que clico em sing Up
+    Dado que acesso o site
+    E que clico em sing Up
     Quando digito o usuário novo
     E digito a nova senha
     E clico no botão submit
@@ -28,7 +29,8 @@ Funcionalidade:
 
   @ID_0004
   Cenário: Validar usuário existente
-    Dado que clico em sing Up
+      Dado que acesso o site
+    E que clico em sing Up
     Quando digito o usuário existente
     E digito a nova senha
     E clico no botão submit
@@ -37,14 +39,16 @@ Funcionalidade:
 
   @ID_0005
   Cenário: Validar video existente
-    Dado que clico em About Us
+    Dado que acesso o site
+    E que clico em About Us
     Quando clico em play
     E o video inicia
     Então confirmo o video andamento
 
   @ID_0006
   Cenário: Enviar mensagem pelo contato
-    Dado que clico em contato
+  Dado que acesso o site
+   E que clico em contato
     Quando escrevo o email
     E escrevo o nome
     E escrevo a mensagem
@@ -83,15 +87,14 @@ Funcionalidade:
     Então a soma de todos os valores na tabela é {int}
     E retorno a página inicial
 
-  @ID_0001 @ID_0010
-  Cenário: Verificar carrinho vazio
-    Dado clico em algumas categorias
-    E seleciono alguns itens
-    E adiciono no carrinho
-    E clico em cart
-    Quando deleto um item
-    E confirmo carrinho vazio
-    Então retorno a página inicial
+	  @ID_0001 @ID_0010
+	  Cenário: Verificar carrinho vazio
+	    Dado clico em algumas categorias
+	    E seleciono alguns itens
+	    E adiciono no carrinho
+	    E clico em cart
+	    Quando deleto todos os itens
+	    Então retorno a página inicial
 
   @ID_0009 @ID_0011
   Cenário: Verificar ajuste dos valores
@@ -104,7 +107,7 @@ Funcionalidade:
     E adiciono no carrinho
     E clico em cart
     Quando a soma de todos os valores na tabela é {int}
-    E deleto um item
+    E deleto o primeiro item
     Então a soma de todos os valores na tabela é {int}
     E retorno a página inicial
 

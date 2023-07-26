@@ -21,7 +21,7 @@ public class LogicElevenTwelve {
 	}
 
 	public static void clickPhones() {
-		Utility.timeSelenium(page.getBtnPhones());
+		Utility.timeClick(page.getBtnPhones());
 	}
 
 	public static void clickPlaceOrder() {
@@ -65,7 +65,6 @@ public class LogicElevenTwelve {
 	public static void clickOk() {
 		Driver.getWebDriver().navigate().refresh();
 		Utility.timeWait(page.getBtnOk());
-
 	}
 
 }

@@ -47,7 +47,7 @@ public class Modal {
 	}
 
 	public void writeText(WebElement element, String text) {
-		Utility.timeSelenium(element);
+		Utility.timeClick(element);
 		Utility.activeScroll(element);
 		element.sendKeys(text);
 	}

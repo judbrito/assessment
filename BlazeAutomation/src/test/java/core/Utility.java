@@ -4,7 +4,10 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 
+import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,11 +22,20 @@ public class Utility {
 		element.click();
 	}
 
-	public static void timeSelenium(WebElement Element) {
+	public static void timeClick(WebElement Element) {
 		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(Element));
 		Element.click();
 
+	}
+
+	public static void timeOnly(WebElement element) {
+		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(10));
+		try {
+			wait.until(ExpectedConditions.visibilityOf(element));
+		} catch (TimeoutException e) {
+			wait.until(ExpectedConditions.alertIsPresent());
+		}
 	}
 
 	public static void timeWait(WebElement element) {
@@ -35,15 +47,19 @@ public class Utility {
 
 	}
 
-	public static void alertIsPresent() {
+	public static void alertIsPresent(String text) {
 		WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.alertIsPresent());
+		Alert alert = Driver.getWebDriver().switchTo().alert();
+		if (alert.getText().equals(text)) {
+			Assert.assertEquals(text, alert.getText());
+			alert.accept();
+		}
 	}
 
 	public static void clickButtonJs(WebElement element) {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver.getWebDriver();
 		jsExecutor.executeScript("arguments[0].click();", element);
-
 	}
 
 	public static void clickRandon(List<WebElement> element) {

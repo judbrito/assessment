@@ -1,10 +1,7 @@
 package test.page_scenario_three_and_four;
 
-import org.junit.Assert;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 
-import core.Driver;
 import core.Utility;
 
 public class LogicThreeFour {
@@ -12,19 +9,19 @@ public class LogicThreeFour {
 	private static Modal model = new Modal();
 
 	public static void clickSingModal() {
-		Utility.timeSelenium(page.getBtnSingModal());
+		Utility.timeClick(page.getBtnSingModal());
 	}
 
 	public static void writeSingUser() {
 		WebElement txtSingUser = page.getTxtSignUser();
-		Utility.timeWait(txtSingUser);
+		Utility.timeClick(txtSingUser);
 		txtSingUser.sendKeys(model.getSignUser());
 
 	}
 
 	public static void writeSingPassword() {
 		WebElement txtSingPassword = page.getTxtSignPassword();
-		Utility.timeWait(txtSingPassword);
+		Utility.timeClick(txtSingPassword);
 		txtSingPassword.sendKeys(model.getSignPasword());
 
 	}
@@ -35,31 +32,20 @@ public class LogicThreeFour {
 	}
 
 	public static void signSucessful() {
-		Utility.alertIsPresent();
-		Alert alert = Driver.getWebDriver().switchTo().alert();
-		if (alert.getText().equals("Sign up successful.")) {
-			Assert.assertEquals("Sign up successful.", alert.getText());
-			System.out.println("Cadastrado com sucesso");
-			alert.accept();
-		}
+		Utility.alertIsPresent("Sign up successful.");
 
 	}
 
 	public static void writeUserExisting() {
 		WebElement txtSingUser = page.getTxtSignUser();
-		Utility.timeSelenium(txtSingUser);
+		Utility.timeClick(txtSingUser);
 		txtSingUser.sendKeys(model.getUserExiting());
 	}
 
 	public static void signUnsuccessful() {
 		page.getBtnSingSubmit().getText();
-		Utility.alertIsPresent();
-		Alert alert = Driver.getWebDriver().switchTo().alert();
-		if (alert.getText().equals("This user already exist.")) {
-			System.out.println("Já existe esse usuário");
-			alert.accept();
+		Utility.alertIsPresent("This user already exist.");
 
-		}
 	}
 
 	public static void closeModal() {

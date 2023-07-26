@@ -1,5 +1,9 @@
 package test;
 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+
+import core.Driver;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
@@ -11,6 +15,16 @@ import test.page_scenario_seven_and_eigth.LogicSevenEight;
 import test.page_scenario_three_and_four.LogicThreeFour;
 
 public class BlazeSteps {
+
+	@BeforeClass
+	public void openWeb() {
+		Driver.webSite("https://www.demoblaze.com/index.html");
+	}
+
+	@AfterClass
+	public void closeWeb() {
+		Driver.tearDown();
+	}
 
 	@Dado("que acesso o site")
 	public void queAcessoOSite() {
@@ -224,9 +238,15 @@ public class BlazeSteps {
 		LogicElevenTwelve.clickPhones();
 	}
 
-	@Quando("deleto um item")
-	public void deletoUmItem() {
-		LogicNineTen.ValueAfterDelete();
+	@Quando("deleto todos os itens")
+	public void deletoTodosOsItens() {
+		LogicNineTen.deleteItem();
+	}
+
+	@Quando("deleto o primeiro item")
+	public void deletoOPrimeiroItem() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new cucumber.api.PendingException();
 	}
 
 	@Quando("clico no botão place order")

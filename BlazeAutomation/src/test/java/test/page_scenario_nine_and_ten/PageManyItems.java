@@ -21,9 +21,6 @@ class PageManyItems {
 	@FindBy(how = How.XPATH, using = "//a[@class='hrefch'][position() < 5]")
 	private WebElement txtAnyItems;
 
-	@FindBy(how = How.XPATH, using = "//a[@class='btn btn-success btn-lg' and contains(text(), 'Add to cart')]")
-	private WebElement txtAddCart;
-
 	@FindBy(how = How.ID, using = "cartur")
 	private WebElement btnCart;
 
@@ -39,16 +36,14 @@ class PageManyItems {
 	@FindBy(how = How.XPATH, using = "//tbody[@id='tbodyid']/tr//td[3]")
 	private WebElement txtMapValues;
 
-	@FindBy(how = How.ID, using = "tbodyid")
-	WebElement tbody;
-
-	@FindBy(how = How.XPATH, using = "//tr")
-	List<WebElement> rows;
 	@FindBy(how = How.ID, using = "totalp")
-	private WebElement txtTotal;
+	private WebElement txtTotalWeb;
+
+	@FindBy(how = How.ID, using = "totalp")
+	private String txtTotalString;
 
 	@FindBy(how = How.XPATH, using = "//tbody[@id='tbodyid']/tr[1]/td[4]/a")
-	private WebElement btnDelete;
+	private List<WebElement> btnDelete;
 
 	@FindBy(how = How.ID, using = "//tbody[@id='tbodyid']/tr")
 	private List<WebElement> txtProducts;
@@ -59,10 +54,6 @@ class PageManyItems {
 
 	public WebElement getTxtAnyItems() {
 		return txtAnyItems;
-	}
-
-	public WebElement getTxtAddCart() {
-		return txtAddCart;
 	}
 
 	public WebElement getBtnCart() {
@@ -85,24 +76,19 @@ class PageManyItems {
 		return txtMapValues;
 	}
 
-	public WebElement getTbody() {
-		return tbody;
-	}
-
 	public List<WebElement> getRows() {
-		return rows;
-	}
-
-	public WebElement getTxtTotal() {
-		return txtTotal;
-	}
-
-	public WebElement getBtnDelete() {
-		return btnDelete;
-	}
-
-	public List<WebElement> getTxtProducts() {
 		return txtProducts;
 	}
 
+	public String getTxtTotalString() {
+		return txtTotalString;
+	}
+
+	public WebElement getTxtTotalWeb() {
+		return txtTotalWeb;
+	}
+
+	public List<WebElement> getBtnDelete() {
+		return btnDelete;
+	}
 }

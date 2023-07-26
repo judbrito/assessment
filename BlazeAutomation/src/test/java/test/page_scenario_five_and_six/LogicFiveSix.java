@@ -2,10 +2,6 @@ package test.page_scenario_five_and_six;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Assert;
-import org.openqa.selenium.Alert;
-
-import core.Driver;
 import core.Utility;
 
 public class LogicFiveSix {
@@ -13,35 +9,31 @@ public class LogicFiveSix {
 	private static Modal model = new Modal();
 
 	public static void clickAbout() {
-		Utility.timeSelenium(page.getBtnAbout());
+		Utility.timeClick(page.getBtnAbout());
 		System.out.println("clique sobre");
 	}
 
 	public static void clickPlay() {
-		Utility.timeSelenium(page.getBtnPlay());
-
+		Utility.timeClick(page.getBtnPlay());
 	}
 
 	public static void videoProgress() {
-		Utility.timeSelenium(page.getTxtVideo());
+		Utility.timeClick(page.getTxtVideo());
 		boolean isVideoVisible = page.getTxtVideo().isDisplayed();
 		assertTrue("Vídeo não encontrado", isVideoVisible);
-
-		System.out.println("Vídeo em andamento");
 	}
 
 	public static void videoClosed() {
-		Utility.timeSelenium(page.getBtnClose());
+		Utility.timeClick(page.getBtnClose());
 		page.getBtnClose().click();
 	}
 
 	public static void clickContact() {
 		page.getBtnContact().click();
-
 	}
 
 	public static void writeEmail() {
-		Utility.timeSelenium(page.getTxtEmail());
+		Utility.timeClick(page.getTxtEmail());
 		page.getTxtEmail().sendKeys(model.getEmail());
 	}
 
@@ -55,15 +47,9 @@ public class LogicFiveSix {
 
 	public static void clickSendMessage() {
 		page.getBtnSend().click();
-
 	}
 
 	public static void sentMessage() {
-		Utility.alertIsPresent();
-		Alert alert = Driver.getWebDriver().switchTo().alert();
-		String alertText = alert.getText();
-		Assert.assertEquals("Thanks for the message!!", alertText);
-		alert.accept();
+		Utility.alertIsPresent("Thanks for the message!!");
 	}
-
 }

@@ -21,13 +21,13 @@ public class LogicOneTwo {
 
 	public static void writeUser() {
 		WebElement txtUser = page.getTxtUser();
-		Utility.timeSelenium(txtUser);
+		Utility.timeOnly(txtUser);
 		txtUser.sendKeys(model.getEmail());
 	}
 
 	public static void writePassword() {
 		WebElement TxtPassword = page.getTxtPassword();
-		Utility.timeSelenium(TxtPassword);
+		Utility.timeOnly(TxtPassword);
 		TxtPassword.sendKeys(model.getPassWord());
 	}
 
@@ -37,7 +37,7 @@ public class LogicOneTwo {
 
 	public static void emailOn() {
 		WebElement islogged = page.getTxtValidationOn();
-		Utility.timeSelenium(islogged);
+		Utility.timeOnly(islogged);
 		Assert.assertEquals(true, islogged.isDisplayed());
 		System.out.println("O endereço de email está visível na tela.");
 	}
@@ -48,7 +48,7 @@ public class LogicOneTwo {
 
 	public static void emailOff() {
 		WebElement isUnlogged = page.getTxtValidationOff();
-		Utility.timeSelenium(isUnlogged);
+		Utility.timeOnly(isUnlogged);
 		Assert.assertEquals(true, isUnlogged.isDisplayed());
 		System.out.println("O Botão log out não está visível na tela.");
 	}

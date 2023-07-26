@@ -55,7 +55,7 @@ public class ImagensUtils {
 		String idCenario = "";
 		for (String tag : scenario.getSourceTagNames()) {
 			if (tag.startsWith("@ID_")) {
-				idCenario = tag.substring(1); // Remove o "@" da tag
+				idCenario = tag.substring(1);
 				break;
 			}
 		}
